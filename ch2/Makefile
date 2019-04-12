@@ -1,7 +1,6 @@
 TARGET = test.exe
-OBJS = main.o randuni.o configFile.o
+OBJS = main.o 
 CC = g++
-OPTFLAG =  -O3 -DNDEBUG
 CFLAGS = -c -Wall  -g
 LFLAGS = -Wall  -g
 #CFLAGS = -c -Wall -O3 -DNDEBUG
@@ -10,14 +9,9 @@ LFLAGS = -Wall  -g
 $(TARGET): $(OBJS)
 	$(CC) $(LFLAGS)  $(OBJS) -o $(TARGET)
 
-main.o: main.cpp xyz.h system.h 
+main.o: main.cpp complex.h
 	$(CC) $(CFLAGS) main.cpp
 
-randuni.o: randuni.cpp randuni.h
-	$(CC) $(CFLAGS) randuni.cpp
-
-configFile.o: configFile.cpp configFile.h
-	$(CC) $(CFLAGS) configFile.cpp
 
 .PHONY: clean
 clean:
